@@ -26,7 +26,7 @@ export default function Home() {
         <meta property='og:adamibnu' content='Github Profile' />
       </Head>
       <SearchBar onUsernameChange={handleUsernameChange} />
-      <div className='flex flex-col md:flex-row top-0 z-10 p-4 w-full'>
+      <div className='flex flex-col md:flex-row top-0 z-10 p-4 w-full bg-blend-darken'>
         <Profile />
         <LanguageList />
       </div>
