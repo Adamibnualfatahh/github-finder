@@ -10,7 +10,6 @@ const SearchBar: FC<SearchBarProps> = ({ onUsernameChange }) => {
   const [username, setUsername] = useState<string>('')
 
   useEffect(() => {
-    // Ambil nilai username dari query parameter dan atur state
     const usernameFromQuery = router.query.username as string
     if (usernameFromQuery) {
       setUsername(usernameFromQuery)

@@ -15,7 +15,7 @@ const Profile = () => {
       setLoading(true)
       setError(false)
       axios
-        .get(`https://api.github.com/users/${username}`)
+        .get(`/api/github/users?username=${username}`)
         .then((res) => {
           setProfile(res.data)
           setLoading(false)
@@ -39,8 +39,7 @@ const Profile = () => {
   if (loading) return (
      <div className='w-full h-screen flex justify-center items-center bg-gray-900 rounded-xl'>
           <div className='text-center'>
-              <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-400"></div>
-
+              <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-violet-400"></div>
           </div>
       </div>
   )

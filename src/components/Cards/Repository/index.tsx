@@ -20,7 +20,7 @@ const RepositoryList: React.FC = () => {
       setError(false)
 
       axios
-        .get(`https://api.github.com/users/${username}`)
+        .get(`/api/github/users?username=${username}`)
         .then((res) => {
           setProfile(res.data)
           setLoading(false)
@@ -31,7 +31,7 @@ const RepositoryList: React.FC = () => {
         })
 
       axios
-        .get(`https://api.github.com/users/${username}/repos`)
+        .get(`/api/github/users?username=${username}/repos?per_page=1000`)
         .then((res) => {
           const repos = res.data
 
