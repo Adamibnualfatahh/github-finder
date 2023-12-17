@@ -58,7 +58,7 @@ const LanguageList: FC<Languages> = ({}) => {
   }, [username])
 
   if (!username) return null
-  if (loading) return <p>Loading...</p>
+  if (loading) return null
 
   if (error || !profile) return null
 

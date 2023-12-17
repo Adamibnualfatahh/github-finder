@@ -78,7 +78,6 @@ const RepositoryList: React.FC = () => {
   const reposCount = filteredRepos?.length || 0
 
   if (!username) return null
-  if (loading) return <p>Loading...</p>
   if (error || !profile || !profile.repos) return null
 
   return (

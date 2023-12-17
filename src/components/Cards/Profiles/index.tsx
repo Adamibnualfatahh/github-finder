@@ -27,14 +27,32 @@ const Profile = () => {
     }
   }, [username])
 
-  if (loading) return <p>Loading...</p>
+  if (!username) return (
+      <div className='w-full h-screen flex justify-center items-center bg-gray-900 rounded-xl'>
+          <div className='animate-pulse text-center'>
+                <h1 className='text-2xl font-bold'>Please Input Username</h1>
+                <p className='text-gray-400 text-sm'>Example: adamibnualfatahh</p>
+          </div>
+      </div>
+  )
+
+  if (loading) return (
+     <div className='w-full h-screen flex justify-center items-center bg-gray-900 rounded-xl'>
+          <div className='text-center'>
+              <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-400"></div>
+
+          </div>
+      </div>
+  )
 
   if (error || !profile)
     return (
-      <div className='bg-gray-900 w-full h-screen flex items-center justify-center rounded-xl text-xl font-bold'>
-        {' '}
-        Humm... User not found!{' '}
-      </div>
+        <div className='w-full h-screen flex justify-center items-center bg-gray-900 rounded-xl'>
+            <div className='text-center'>
+                <h1 className='text-2xl font-bold'>Humm... User not found!</h1>
+                <p className='text-gray-400'>Please Input Correct Username</p>
+            </div>
+        </div>
     )
 
   return (
