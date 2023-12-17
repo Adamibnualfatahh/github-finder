@@ -9,7 +9,11 @@ export default async function handler(
     const { username } = req.query
     const response = await axios.get(
       `https://api.github.com/users/${username}/followers`,
-    )
+    {
+      headers: {
+        Authorization: `token ${process.env.GITHUB_TOKEN}`,
+      },
+    })
     const data = response.data
     res.status(200).json(data)
   } catch (error) {
