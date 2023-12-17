@@ -10,7 +10,7 @@ export default async function handler(
     const response = await axios.get(`https://api.github.com/users/${username}`,
     {
       headers: {
-        Authorization: `token ${process.env.GITHUB_TOKEN}`,
+        Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
       },
     })
     const data = response.data

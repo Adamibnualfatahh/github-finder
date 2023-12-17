@@ -11,7 +11,7 @@ export default async function handler(
       `https://api.github.com/users/${username}/followers`,
     {
       headers: {
-        Authorization: `token ${process.env.GITHUB_TOKEN}`,
+        Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
       },
     })
     const data = response.data

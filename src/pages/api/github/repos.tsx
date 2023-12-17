@@ -12,7 +12,7 @@ export default async function handler(
     ,
     {
       headers: {
-        Authorization: `token ${process.env.GITHUB_TOKEN}`,
+        Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
       },
     })
     const data = response.data
