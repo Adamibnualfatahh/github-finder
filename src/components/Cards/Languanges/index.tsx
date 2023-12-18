@@ -57,17 +57,18 @@ const LanguageList: FC<Languages> = ({}) => {
     }
   }, [username])
 
-  if (!username) return null
+  if (!username) return <div className='w-full h-screen bg-black'> </div>
   if (loading) return null
 
-  if (error || !profile) return null
+  if (error || !profile)
+    return <div className='w-full h-screen bg-black'> </div>
 
   return (
     <div className='w-full md:w-2/3 flex-col md:flex-row'>
       <div className='bg-gray-800 ml-0 md:ml-4 mt-4 mb-4 md:mt-0  rounded-2xl p-4'>
         <div className='flex'>
-          <h2 className='font-bold text-xl'>Languages</h2>
-          <span className='py-1 px-2  bg-gray-700 ml-2 rounded-xl'>
+          <h2 className='text-white font-bold text-xl'>Languages</h2>
+          <span className='text-white py-1 px-2  bg-gray-700 ml-2 rounded-xl'>
             {Object.keys(languages).length}
           </span>
         </div>

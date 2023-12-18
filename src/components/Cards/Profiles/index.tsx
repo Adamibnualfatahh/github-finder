@@ -27,31 +27,35 @@ const Profile = () => {
     }
   }, [username])
 
-  if (!username) return (
+  if (!username)
+    return (
       <div className='w-full h-screen flex justify-center items-center bg-gray-900 rounded-xl'>
-          <div className='animate-pulse text-center'>
-                <h1 className='text-2xl font-bold'>Please Input Username</h1>
-                <p className='text-gray-400 text-sm'>Example: adamibnualfatahh</p>
-          </div>
+        <div className='animate-pulse text-center'>
+          <h1 className='text-gray-200 text-2xl font-bold'>
+            Please Input Username
+          </h1>
+          <p className='text-gray-400 text-sm'>Example: adamibnualfatahh</p>
+        </div>
       </div>
-  )
+    )
 
-  if (loading) return (
-     <div className='w-full h-screen flex justify-center items-center bg-gray-900 rounded-xl'>
-          <div className='text-center'>
-              <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-violet-400"></div>
-          </div>
+  if (loading)
+    return (
+      <div className='w-full h-screen flex justify-center items-center bg-gray-900 rounded-xl'>
+        <div className='text-center'>
+          <div className='w-16 h-16 border-4 border-dashed rounded-full animate-spin border-violet-400'></div>
+        </div>
       </div>
-  )
+    )
 
   if (error || !profile)
     return (
-        <div className='w-full h-screen flex justify-center items-center bg-gray-900 rounded-xl'>
-            <div className='text-center'>
-                <h1 className='text-2xl font-bold'>Humm... User not found!</h1>
-                <p className='text-gray-400'>Please Input Correct Username</p>
-            </div>
+      <div className='w-full h-screen flex justify-center items-center bg-gray-900 rounded-xl'>
+        <div className='text-center'>
+          <h1 className='text-2xl font-bold'>Humm... User not found!</h1>
+          <p className='text-gray-400'>Please Input Correct Username</p>
         </div>
+      </div>
     )
 
   return (
@@ -134,26 +138,27 @@ const Profile = () => {
       {profile.bio || profile.location || profile.blog ? (
         <>
           <div className='bg-gray-800 border border-gray-800 shadow-lg rounded-2xl p-4 mt-4'>
-            <h2 className='font-bold text-xl'>About</h2>
+            <h2 className='text-white font-bold text-xl'>About</h2>
             {profile.bio && (
-              <>
+              <div className='text-gray-400'>
                 {profile.bio}
                 <div className='w-full h-1 bg-gray-700 mt-2 mb-2'></div>
-              </>
+              </div>
             )}
-
-            <div className='flex items-center mt-2'>
-              <svg
-                className='w-4 h-4 text-gray-400'
-                aria-hidden='true'
-                xmlns='http://www.w3.org/2000/svg'
-                fill='currentColor'
-                viewBox='0 0 16 20'
-              >
-                <path d='M8 0a7.992 7.992 0 0 0-6.583 12.535 1 1 0 0 0 .12.183l.12.146c.112.145.227.285.326.4l5.245 6.374a1 1 0 0 0 1.545-.003l5.092-6.205c.206-.222.4-.455.578-.7l.127-.155a.934.934 0 0 0 .122-.192A8.001 8.001 0 0 0 8 0Zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z' />
-              </svg>
-              <p className='ml-2 text-sm text-gray-500'>{profile.location}</p>
-            </div>
+            {profile.location && (
+              <div className='flex items-center mt-2'>
+                <svg
+                  className='w-4 h-4 text-gray-400'
+                  aria-hidden='true'
+                  xmlns='http://www.w3.org/2000/svg'
+                  fill='currentColor'
+                  viewBox='0 0 16 20'
+                >
+                  <path d='M8 0a7.992 7.992 0 0 0-6.583 12.535 1 1 0 0 0 .12.183l.12.146c.112.145.227.285.326.4l5.245 6.374a1 1 0 0 0 1.545-.003l5.092-6.205c.206-.222.4-.455.578-.7l.127-.155a.934.934 0 0 0 .122-.192A8.001 8.001 0 0 0 8 0Zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z' />
+                </svg>
+                <p className='ml-2 text-sm text-gray-500'>{profile.location}</p>
+              </div>
+            )}
             {profile.blog && (
               <div className='flex items-center mt-2'>
                 <svg

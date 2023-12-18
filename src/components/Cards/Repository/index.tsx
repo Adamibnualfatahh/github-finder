@@ -53,7 +53,7 @@ const RepositoryList: React.FC = () => {
   useEffect(() => {
     if (profile && profile.repos) {
       const languages = profile.repos
-        .flatMap((repo: any) => repo.language || []) // Handle the case where language is null
+        .flatMap((repo: any) => repo.language || [])
         .filter((language: string, index: number, self: string[]) => {
           return language && self.indexOf(language) === index
         })
@@ -64,7 +64,6 @@ const RepositoryList: React.FC = () => {
   const filteredRepos =
     profile?.repos?.filter((repo: any) => {
       if (filter && (repo.language || '') !== filter) {
-        // Handle the case where language is null
         return false
       }
 
@@ -77,11 +76,12 @@ const RepositoryList: React.FC = () => {
 
   const reposCount = filteredRepos?.length || 0
 
-  if (!username) return null
-  if (error || !profile || !profile.repos) return null
+  if (!username) return <div className='w-full h-screen bg-black'> </div>
+  if (error || !profile || !profile.repos)
+    return <div className='w-full h-screen bg-black'> </div>
 
   return (
-    <div className='bg-gray-800 ml-0 md:ml-4 mt-4 md:mt-0 rounded-2xl p-4'>
+    <div className='text-white bg-gray-800 ml-0 md:ml-4 mt-4 md:mt-0 rounded-2xl p-4'>
       <div className='flex'>
         <h2 className='font-bold text-xl'>Projects</h2>
         <span className='py-1 px-2 bg-gray-700 ml-2 rounded-xl'>

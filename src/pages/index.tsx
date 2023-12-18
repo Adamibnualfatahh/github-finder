@@ -11,7 +11,7 @@ export default function Home() {
     const username = formattedUsername.replace('?username=', '')
   }
   return (
-    <main>
+    <main className='bg-black'>
       <Head>
         <title>Profile Search</title>
         <meta property='og:title' content='Profile Search' key='title' />
